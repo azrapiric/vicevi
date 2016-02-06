@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             
             'nick',
             'email:email',
-            'password',
+            //'password',
             ['attribute'=>'role',
             'value'=>function($data){
                 if($data->role==1){

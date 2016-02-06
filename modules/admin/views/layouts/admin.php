@@ -22,7 +22,17 @@ AppAsset::register($this);
     <?php $this->head() ?>
 </head>
 <body>
+
+ <style type="text/css">
+        body{
+            background: url('pozadina.jpg');
+            background-size: 100%;
+            
+        }
+
+        </style>
 <?php $this->beginBody() ?>
+
 
 <div class="wrap">
     <?php

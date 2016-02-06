@@ -5,6 +5,8 @@ use yii\widgets\DetailView;
 use kartik\widgets\DatePicker;
 use yii\widgets\ActiveForm;
 use kartik\switchinput\SwitchInput;
+use kartik\rating\StarRating;
+
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Joke */
@@ -44,6 +46,21 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
        </div>
+       <?php 
+          $form = ActiveForm::begin([
+            'action'=>'index.php?r=admin/joke/rating&id='.$model->id,
+          ]); 
+        ?>
+
+        <?= $form->field($model, 'rating')->widget(StarRating::classname(), [
+         'pluginOptions' => ['size'=>'lg']
+        ]); ?>
+
+        <div class="form-group">
+           <?= Html::submitButton('Submit Rating', ['class' =>'btn btn-primary']) ?>
+        </div>
+        <?php ActiveForm::end(); ?>
+
        <!--Komentari foreach-->
        <?php 
        echo '<b>Comments:</b> </br>';
@@ -75,6 +92,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $comment->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
+
+   
 
     <?php ActiveForm::end(); ?>
 

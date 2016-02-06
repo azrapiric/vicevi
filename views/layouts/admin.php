@@ -23,6 +23,17 @@ AppAsset::register($this);
     <?php $this->head() ?>
 </head>
 <body>
+<?php $this->beginContent('@app/views/layouts/main.php'); ?>
+
+ <style type="text/css">
+        body{
+            background: url('vicko.jpg');
+            background-size: 100%;
+            
+        }
+
+        </style>
+       <?php echo $content; ?> 
 <?php $this->beginBody() ?>
 
 <div class="wrap">

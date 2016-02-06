@@ -230,4 +230,14 @@ class JokeController extends Controller
       $model->toggleActive();
       $this->redirect(['index']);
     }
+
+    public function actionRating($id){
+      $model=$this->findModel($id);
+      $new_rating=Yii::$app->request->post('Joke')['rating'];
+      $model->rating=($model->rating_num*$model->rating+$new_rating)/($model->rating_num+1);
+      $model->rating_num=$model->rating_num+1;
+      $model->save(false);
+      return  $this->redirect(['view','id'=>$id]);
+
+    }
 }
